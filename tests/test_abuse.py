@@ -41,3 +41,8 @@ def test_exact_and_subdomain_of_legit_domains_are_clean():
 def test_brand_in_subdomain_of_unrelated_domain_is_flagged():
     for d in ("sui.airdrop-claim.xyz", "mystenlabs.verify-wallet.top", "walrus.reward-claim.live", "suiexplorer.recover-wallet.xyz"):
         assert D.domain_is_phish(d)[0], d
+
+
+def test_digit_one_can_stand_for_i_or_l():
+    assert D.domain_is_phish("su1-rewards.xyz")[0]
+    assert D.domain_is_phish("mysten1abs-support.link")[0]
