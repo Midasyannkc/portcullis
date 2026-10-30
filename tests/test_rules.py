@@ -67,3 +67,7 @@ def test_treasury_move_withdraw_requires_admin_cap(scan):
 def test_rules_are_quiet_on_real_sui_framework_move(scan):
     """Known-clean check: the real framework files are not Treasury bugs."""
     assert not fired(scan, "move-public-fn-mutates-without-capability", "data/raw/move")
+
+
+def test_rust_slice_rule_is_quiet_once_length_is_checked(scan):
+    assert not fired(scan, "rust-unchecked-slice-of-input", "target/treasury-rs")
