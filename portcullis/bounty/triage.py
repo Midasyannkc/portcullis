@@ -52,7 +52,7 @@ def dedupe(reports):
     for r in sorted(reports, key=lambda x: (x["received"], x["id"])):
         match = None
         for s in seen:
-            if s["asset"] == r["asset"] and s["class_claimed"] == r["class_claimed"]:
+            if s["asset"] == r["asset"] and s["class_claimed"] == r["class_claimed"] and s["endpoint"] == r["endpoint"]:
                 a, b = _tokens(s["title"]), _tokens(r["title"])
                 if len(a & b) / len(a | b) >= 0.6:
                     match = s["id"]; break
