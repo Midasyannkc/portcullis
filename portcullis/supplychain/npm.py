@@ -153,6 +153,14 @@ def _lev(a, b):
     return prev[-1]
 
 
+def _transposed(a, b):
+    """True if a and b differ by exactly one adjacent swap."""
+    if len(a) != len(b) or a == b:
+        return False
+    d = [i for i in range(len(a)) if a[i] != b[i]]
+    return len(d) == 2 and d[1] == d[0] + 1 and a[d[0]] == b[d[1]] and a[d[1]] == b[d[0]]
+
+
 def _norm(n):
     return re.sub(r"[-_.]", "", n.lower())
 
@@ -169,6 +177,8 @@ def typosquat(name, popular=None):
     bare = name.split("/")[-1]
     for p in popular:
         if _norm(bare) == _norm(p) and bare != p:
+            return p
+        if len(p) >= 4 and _transposed(bare, p):
             return p
         if len(p) >= 5 and _lev(bare, p) == 1:
             return p
