@@ -1,0 +1,407 @@
+{
+ "advisories/GHSA-4x49-vf9v-38px.json": {
+  "bytes": 4129,
+  "sha256": "ccf04c47ac55ec9088fa95517817fa871eff38d8534378618ed01587063b9223",
+  "url": "https://raw.githubusercontent.com/github/advisory-database/main/advisories/github-reviewed/2025/09/GHSA-4x49-vf9v-38px/GHSA-4x49-vf9v-38px.json"
+ },
+ "advisories/GHSA-53mq-f4w3-f7qv.json": {
+  "bytes": 4151,
+  "sha256": "f3a09385597258144ebdbcb9d09e79d9ea2d4356c1f5bd467b4b6e43db6d2a52",
+  "url": "https://raw.githubusercontent.com/github/advisory-database/main/advisories/github-reviewed/2025/09/GHSA-53mq-f4w3-f7qv/GHSA-53mq-f4w3-f7qv.json"
+ },
+ "advisories/GHSA-5fvm-p68v-5wmh.json": {
+  "bytes": 4172,
+  "sha256": "e33b369a014ae9df7ada8f896055d08f6e15f7a9d0cf8b8f8c7c0a98309ff93d",
+  "url": "https://raw.githubusercontent.com/github/advisory-database/main/advisories/github-reviewed/2025/09/GHSA-5fvm-p68v-5wmh/GHSA-5fvm-p68v-5wmh.json"
+ },
+ "advisories/GHSA-jwq7-6j4r-2f92.json": {
+  "bytes": 2021,
+  "sha256": "657163921ab56a1c68a9a1ba30f6e129ff89e5577c794cb4a68b5b08cc0a6a7b",
+  "url": "https://raw.githubusercontent.com/github/advisory-database/main/advisories/github-reviewed/2025/09/GHSA-jwq7-6j4r-2f92/GHSA-jwq7-6j4r-2f92.json"
+ },
+ "advisories/GHSA-m662-56rj-8fmm.json": {
+  "bytes": 1989,
+  "sha256": "8c6e11730730e693ecc8c42c9fafa5b7180eb8599a9d1ca22385396cd5fcae50",
+  "url": "https://raw.githubusercontent.com/github/advisory-database/main/advisories/github-reviewed/2025/09/GHSA-m662-56rj-8fmm/GHSA-m662-56rj-8fmm.json"
+ },
+ "advisories/GHSA-mrrh-fwg8-r2c3.json": {
+  "bytes": 8928,
+  "sha256": "f2a57bfbd08d7878fb09032741ff5a804c6be5475a93acf14171e395b87ecd55",
+  "url": "https://raw.githubusercontent.com/github/advisory-database/main/advisories/github-reviewed/2025/03/GHSA-mrrh-fwg8-r2c3/GHSA-mrrh-fwg8-r2c3.json"
+ },
+ "advisories/GHSA-qj3p-xc97-xw74.json": {
+  "bytes": 3873,
+  "sha256": "e09b1dd0a0f63c3d8980a49526d506562691cf49e10b558bc957747ccb692606",
+  "url": "https://raw.githubusercontent.com/github/advisory-database/main/advisories/github-reviewed/2025/09/GHSA-qj3p-xc97-xw74/GHSA-qj3p-xc97-xw74.json"
+ },
+ "kev.json": {
+  "bytes": 1822979,
+  "sha256": "38a7172a5f26470dc7632aaa1c6cff4a51fe7bfec8cdce978a19b816a751e34d",
+  "url": "https://raw.githubusercontent.com/cisagov/kev-data/main/known_exploited_vulnerabilities.json"
+ },
+ "move/balance.move": {
+  "bytes": 6250,
+  "sha256": "6858b4eea059e15b243bde55e269f10e9af1afdcbd45ad0ef99e8640df6fc9b1",
+  "url": "https://raw.githubusercontent.com/MystenLabs/sui/main/crates/sui-framework/packages/sui-framework/sources/balance.move"
+ },
+ "move/coin.move": {
+  "bytes": 23867,
+  "sha256": "49637081290aca8f6997d4f916f93ea89a5ed3712612814b03510ff553d91d29",
+  "url": "https://raw.githubusercontent.com/MystenLabs/sui/main/crates/sui-framework/packages/sui-framework/sources/coin.move"
+ },
+ "move/kiosk_kiosk.move": {
+  "bytes": 24024,
+  "sha256": "894551834729eff904a0e9075aa0bf77481919c2352870b4de4d8b831350db85",
+  "url": "https://raw.githubusercontent.com/MystenLabs/sui/main/crates/sui-framework/packages/sui-framework/sources/kiosk/kiosk.move"
+ },
+ "move/transfer.move": {
+  "bytes": 8913,
+  "sha256": "3ec5a78be55b2972a120a998a39e373cce1eef27186737b977d897da668e93db",
+  "url": "https://raw.githubusercontent.com/MystenLabs/sui/main/crates/sui-framework/packages/sui-framework/sources/transfer.move"
+ },
+ "move/vec_map.move": {
+  "bytes": 7344,
+  "sha256": "af152baac748e02f6c6c156a052f3162ccb2b8854326b5fc3e2b0e0334266cf1",
+  "url": "https://raw.githubusercontent.com/MystenLabs/sui/main/crates/sui-framework/packages/sui-framework/sources/vec_map.move"
+ },
+ "npm/latest/ansi-styles.json": {
+  "bytes": 2094,
+  "sha256": "b601c98202c1c14ce2aaf1d5f50a73e5f947b9dbd2f5ceeee4adf55e3027c299",
+  "url": "https://registry.npmjs.org/ansi-styles/latest"
+ },
+ "npm/latest/async.json": {
+  "bytes": 2911,
+  "sha256": "0ac9d2d21c8cd72370fc4d2e483fb2d529c3b9a33830ce7ca493a2112f49f4b1",
+  "url": "https://registry.npmjs.org/async/latest"
+ },
+ "npm/latest/axios.json": {
+  "bytes": 6673,
+  "sha256": "397df8d76614228b6c4f6e2bf5ad1ce1695540f757f7a488e7be1e1feab2f56f",
+  "url": "https://registry.npmjs.org/axios/latest"
+ },
+ "npm/latest/bluebird.json": {
+  "bytes": 3550,
+  "sha256": "e8a381dffe8ebfd86945b5812e3e909468e865bda560e7678b5023291322e9f5",
+  "url": "https://registry.npmjs.org/bluebird/latest"
+ },
+ "npm/latest/chai.json": {
+  "bytes": 3028,
+  "sha256": "385439cf6e2cfa599896770467d70c5a31ff9dc29a7e57182f043edaa5874ce8",
+  "url": "https://registry.npmjs.org/chai/latest"
+ },
+ "npm/latest/chalk.json": {
+  "bytes": 2620,
+  "sha256": "ef91fea49c1bc93aeed3089f5ec0c79a1791524f63ce57154b95e005178d078a",
+  "url": "https://registry.npmjs.org/chalk/latest"
+ },
+ "npm/latest/commander.json": {
+  "bytes": 2314,
+  "sha256": "d0a2a6705019e1b22b18bec98745ed8c0f746021bc1e1f26c1e7647fa634ffa2",
+  "url": "https://registry.npmjs.org/commander/latest"
+ },
+ "npm/latest/core-js.json": {
+  "bytes": 2258,
+  "sha256": "6c54cb91d9e32d1ef77653c76f3e0dcc28c39e1686db9948d372ff2d6580f276",
+  "url": "https://registry.npmjs.org/core-js/latest"
+ },
+ "npm/latest/dayjs.json": {
+  "bytes": 3887,
+  "sha256": "10605afabe5722eb2d3b884fa02fe44ab469edc8cec7916abceca62ab1046459",
+  "url": "https://registry.npmjs.org/dayjs/latest"
+ },
+ "npm/latest/debug.json": {
+  "bytes": 2240,
+  "sha256": "9dcaa69f6946d12b9f94ad83766fd31029986c18ca9753a15ebdc49031d16dc4",
+  "url": "https://registry.npmjs.org/debug/latest"
+ },
+ "npm/latest/esbuild.json": {
+  "bytes": 5022,
+  "sha256": "7a6838097b106ef5d8877fd543a1e25c46e5eb1730945fb7e57bc467c12c7c8c",
+  "url": "https://registry.npmjs.org/esbuild/latest"
+ },
+ "npm/latest/escape-string-regexp.json": {
+  "bytes": 2626,
+  "sha256": "2803d60c9c4c40f117eaaf087b756887d708dd701e9e225a07c218101d85f767",
+  "url": "https://registry.npmjs.org/escape-string-regexp/latest"
+ },
+ "npm/latest/eslint.json": {
+  "bytes": 7517,
+  "sha256": "1c53c5fad93e009f1315838f82bfb41e2bbf9c6da7ed8b90a5570d58c47e3f99",
+  "url": "https://registry.npmjs.org/eslint/latest"
+ },
+ "npm/latest/express.json": {
+  "bytes": 3837,
+  "sha256": "de13a19dd0f5be0d25e68048ec869a8beaeb83b5dd5a2ffa95b69c1943d4ac2a",
+  "url": "https://registry.npmjs.org/express/latest"
+ },
+ "npm/latest/husky.json": {
+  "bytes": 1519,
+  "sha256": "405857547bf9285fcc30d66c8a37ba2316fc2f0daa0e052136868ef65a516212",
+  "url": "https://registry.npmjs.org/husky/latest"
+ },
+ "npm/latest/is-number.json": {
+  "bytes": 3199,
+  "sha256": "42288c4971286c252ea16450b0777e67a710a698446faa99e2d8d2344a087c25",
+  "url": "https://registry.npmjs.org/is-number/latest"
+ },
+ "npm/latest/jest.json": {
+  "bytes": 2430,
+  "sha256": "639376f617acd259230c8ab66f0f145fd9aeb2f614a2e2f3716eb1697d8722a7",
+  "url": "https://registry.npmjs.org/jest/latest"
+ },
+ "npm/latest/jquery.json": {
+  "bytes": 2682,
+  "sha256": "4e851c20294d3906215c56aaf2e4e7b8efedfe9c52657f5e575161be16a4f5ae",
+  "url": "https://registry.npmjs.org/jquery/latest"
+ },
+ "npm/latest/left-pad.json": {
+  "bytes": 1571,
+  "sha256": "dbc2770a1039acd66cd5f87ebafcd212b367a0baecbcfe1ee7d43960b7aafc25",
+  "url": "https://registry.npmjs.org/left-pad/latest"
+ },
+ "npm/latest/lodash.json": {
+  "bytes": 1669,
+  "sha256": "54a227825f8aa5d56e0241ddb02ebb787c48b3ecdab6b1bb8fe855267ec0d51f",
+  "url": "https://registry.npmjs.org/lodash/latest"
+ },
+ "npm/latest/minimist.json": {
+  "bytes": 3525,
+  "sha256": "dc08770ea3dc9e8efb9e3592a1c705ee560f0765d0f6887d54499dafb3a08cb1",
+  "url": "https://registry.npmjs.org/minimist/latest"
+ },
+ "npm/latest/mocha.json": {
+  "bytes": 7436,
+  "sha256": "86103eba3dcc5b9a316026ed925979ac5e9267374938f84c8411ce5a114a8752",
+  "url": "https://registry.npmjs.org/mocha/latest"
+ },
+ "npm/latest/moment.json": {
+  "bytes": 5207,
+  "sha256": "5f20ebd10749d435a362bef2b281ac7600ca83be3afd87a2b9dbe59addb1a54c",
+  "url": "https://registry.npmjs.org/moment/latest"
+ },
+ "npm/latest/ms.json": {
+  "bytes": 5200,
+  "sha256": "9f31c78548e84f877cedb1e0f0652419777d0c036fbb72985da187e2a962b45d",
+  "url": "https://registry.npmjs.org/ms/latest"
+ },
+ "npm/latest/next.json": {
+  "bytes": 3065,
+  "sha256": "9d2fdb92b3c30d8a4dca948c8af4f254cc8c97feb707ca188cc77171bbe214b9",
+  "url": "https://registry.npmjs.org/next/latest"
+ },
+ "npm/latest/node-gyp.json": {
+  "bytes": 2667,
+  "sha256": "dfd09d37888769b5b3691f35144d7e53e87724461b84c538952df8f80b888aa9",
+  "url": "https://registry.npmjs.org/node-gyp/latest"
+ },
+ "npm/latest/prettier.json": {
+  "bytes": 5870,
+  "sha256": "15fc5a88d57d228acc4daca70370496b5c547f9b27060278a0ca804c4fd75e04",
+  "url": "https://registry.npmjs.org/prettier/latest"
+ },
+ "npm/latest/puppeteer.json": {
+  "bytes": 3847,
+  "sha256": "ce79e9da8731990a080d36a56f8f808bb635c3ada68c97026a77d0d3da45ea7e",
+  "url": "https://registry.npmjs.org/puppeteer/latest"
+ },
+ "npm/latest/react.json": {
+  "bytes": 2150,
+  "sha256": "ecf8c02b9096a7813842d87fae50a707a8809c5c3d0ec6b359ac51d40188ff6f",
+  "url": "https://registry.npmjs.org/react/latest"
+ },
+ "npm/latest/request.json": {
+  "bytes": 3712,
+  "sha256": "ff7792bf3b4b293e07479a935fd38f547839fcbb1f22ace53f100789dc2deb2a",
+  "url": "https://registry.npmjs.org/request/latest"
+ },
+ "npm/latest/semver.json": {
+  "bytes": 2569,
+  "sha256": "595600ec8060055e4582121441e8227bc6ab12ff63b42030686e18ec46226ff2",
+  "url": "https://registry.npmjs.org/semver/latest"
+ },
+ "npm/latest/sharp.json": {
+  "bytes": 9727,
+  "sha256": "534cddc062d4b03df11e7558d28cb9f6c8d527f0979377c849b7e5ebb2a10612",
+  "url": "https://registry.npmjs.org/sharp/latest"
+ },
+ "npm/latest/supports-color.json": {
+  "bytes": 2113,
+  "sha256": "d566d4815bb3d887e5710e79e5a63d7a540ec717bdceedae100e18f825e2b138",
+  "url": "https://registry.npmjs.org/supports-color/latest"
+ },
+ "npm/latest/typescript.json": {
+  "bytes": 4833,
+  "sha256": "28a8ef314c6bbc3fddb831088f80eb2fcac6351cb618c8ac029f7229f587b8aa",
+  "url": "https://registry.npmjs.org/typescript/latest"
+ },
+ "npm/latest/underscore.json": {
+  "bytes": 4698,
+  "sha256": "ba977a935cabc30bd8a17693797cfffbf47c3b61df485cbdabbce22f988181f3",
+  "url": "https://registry.npmjs.org/underscore/latest"
+ },
+ "npm/latest/uuid.json": {
+  "bytes": 4748,
+  "sha256": "1300ea3d9e133c623ba0c750c17d41ccfa1cc9b2a968a4e8f0fe22f2baf1630f",
+  "url": "https://registry.npmjs.org/uuid/latest"
+ },
+ "npm/latest/vue.json": {
+  "bytes": 3208,
+  "sha256": "4445932171c0f18d214daf4d615ea77dc5d916e718a3baeadc0f77f34d77aa24",
+  "url": "https://registry.npmjs.org/vue/latest"
+ },
+ "npm/latest/webpack.json": {
+  "bytes": 15491,
+  "sha256": "35ff51d1a3ea7b7f6da6b63836a4e15f7347c71b3507d40fc8e0b25c2093214c",
+  "url": "https://registry.npmjs.org/webpack/latest"
+ },
+ "npm/latest/yargs.json": {
+  "bytes": 3377,
+  "sha256": "f8b725b139ffca63d0ca702698ce4602ebffc8d1ab82e57eb682fabd862b19c8",
+  "url": "https://registry.npmjs.org/yargs/latest"
+ },
+ "npm/latest/zod.json": {
+  "bytes": 4362,
+  "sha256": "d6eac84f6c13cbef91acd6ee6b4c1ccbaef774a2f5e7147a0166880ca30ccbbb",
+  "url": "https://registry.npmjs.org/zod/latest"
+ },
+ "npm/registry_keys.json": {
+  "bytes": 580,
+  "sha256": "faf23d8753d5bb79df250f10391ac89b63ecf7743e48487a544a99c847f9c8df",
+  "url": "https://registry.npmjs.org/-/npm/v1/keys"
+ },
+ "npm/tarballs/ansi-styles-7.0.0.tgz": {
+  "bytes": 6614,
+  "sha256": "5583a0ce8a1377d2e486791124437e1b4e9b37ce34f69983ac59f8a28c915bd5",
+  "url": "https://registry.npmjs.org/ansi-styles/-/ansi-styles-7.0.0.tgz"
+ },
+ "npm/tarballs/chalk-6.0.1.tgz": {
+  "bytes": 16463,
+  "sha256": "22a5b05d62a304c950f24dedb466ea07fb4b458e58bb37b2fe2c69ed2c9ba6c3",
+  "url": "https://registry.npmjs.org/chalk/-/chalk-6.0.1.tgz"
+ },
+ "npm/tarballs/debug-4.4.3.tgz": {
+  "bytes": 13449,
+  "sha256": "89c1ac9c946ee8905a875837114528e97eeae35e03be3190584b2216af43e4a7",
+  "url": "https://registry.npmjs.org/debug/-/debug-4.4.3.tgz"
+ },
+ "npm/tarballs/escape-string-regexp-5.0.0.tgz": {
+  "bytes": 1964,
+  "sha256": "c8b662afe8aa2b852ecc27d766e584a502f8351fbbd890611f2509bf083d28e6",
+  "url": "https://registry.npmjs.org/escape-string-regexp/-/escape-string-regexp-5.0.0.tgz"
+ },
+ "npm/tarballs/is-number-7.0.0.tgz": {
+  "bytes": 3730,
+  "sha256": "7b75c1057198cf97696909a9bee176c9c5e9bcb5b03bf3ecef2f484defadd51e",
+  "url": "https://registry.npmjs.org/is-number/-/is-number-7.0.0.tgz"
+ },
+ "npm/tarballs/left-pad-1.3.0.tgz": {
+  "bytes": 3619,
+  "sha256": "870c0fe1096223a58d4f8832d08a7e651ea2fcadb8e6877b2fdc26b662d481dd",
+  "url": "https://registry.npmjs.org/left-pad/-/left-pad-1.3.0.tgz"
+ },
+ "npm/tarballs/ms-2.1.3.tgz": {
+  "bytes": 2967,
+  "sha256": "f6616e15e530ed552f9daa2d3ce71963947c6bc7c98c9b64fd3e673fd02622c6",
+  "url": "https://registry.npmjs.org/ms/-/ms-2.1.3.tgz"
+ },
+ "npm/tarballs/semver-7.8.5.tgz": {
+  "bytes": 29399,
+  "sha256": "d85045d4300d7d57c891336b95df532e73f34c22ffcd222452b6d08b9d127d5d",
+  "url": "https://registry.npmjs.org/semver/-/semver-7.8.5.tgz"
+ },
+ "npm/tarballs/supports-color-11.0.0.tgz": {
+  "bytes": 4639,
+  "sha256": "28446d11b34648b29c57775d983b7ae7e88e9070cfa9861e28305678cd6bb4a3",
+  "url": "https://registry.npmjs.org/supports-color/-/supports-color-11.0.0.tgz"
+ },
+ "npm/tarballs/uuid-14.0.3.tgz": {
+  "bytes": 14991,
+  "sha256": "4750af69abb91dae4c49e4c71c96fd6a3bd0613900f18429b955ad6fb8099977",
+  "url": "https://registry.npmjs.org/uuid/-/uuid-14.0.3.tgz"
+ },
+ "rustsec/RUSTSEC-2020-0071.md": {
+  "bytes": 3264,
+  "sha256": "af34ceca0a2b9635055bd6f2918a1a07149deef27bfd613c5cf782a6003fedf6",
+  "url": "https://raw.githubusercontent.com/rustsec/advisory-db/main/crates/time/RUSTSEC-2020-0071.md"
+ },
+ "rustsec/RUSTSEC-2021-0124.md": {
+  "bytes": 1559,
+  "sha256": "7efd2fc3151aba53cc22b1742e06a97a8bc09a6960db980a51fe9c40c2a493db",
+  "url": "https://raw.githubusercontent.com/rustsec/advisory-db/main/crates/tokio/RUSTSEC-2021-0124.md"
+ },
+ "rustsec/RUSTSEC-2022-0093.md": {
+  "bytes": 1253,
+  "sha256": "d3703864dbaa7ae4fde0fa41a751816ff49ce83378f8d1bdc438b13f68fcb84a",
+  "url": "https://raw.githubusercontent.com/rustsec/advisory-db/main/crates/ed25519-dalek/RUSTSEC-2022-0093.md"
+ },
+ "rustsec/RUSTSEC-2023-0071.md": {
+  "bytes": 1937,
+  "sha256": "1acfbba84b06e53f53af3018bd320573f812b0fbb8bfc017ff7f37df5d919ea6",
+  "url": "https://raw.githubusercontent.com/rustsec/advisory-db/main/crates/rsa/RUSTSEC-2023-0071.md"
+ },
+ "workflows/actions-checkout-test.yml": {
+  "bytes": 9656,
+  "sha256": "cc1cbdd36bae909c4f30f529505c860365156c3a9606b179729549631fc7d593",
+  "url": "https://raw.githubusercontent.com/actions/checkout/main/.github/workflows/test.yml"
+ },
+ "workflows/django-tests.yml": {
+  "bytes": 3170,
+  "sha256": "34cbefb3e3cf4e2338d6cb6090eaf4a867a82de8394879e70169d8a8e475a337",
+  "url": "https://raw.githubusercontent.com/django/django/main/.github/workflows/tests.yml"
+ },
+ "workflows/expressjs-express-ci.yml": {
+  "bytes": 3230,
+  "sha256": "8cda2dcf7bbca4d37cf77b36bafda50935d6aa3109ee9349850d1c1e25471f6d",
+  "url": "https://raw.githubusercontent.com/expressjs/express/master/.github/workflows/ci.yml"
+ },
+ "workflows/facebook-react-runtime.yml": {
+  "bytes": 44567,
+  "sha256": "3399f0cd947a0466300921511ba4cd81115779181ef25013e0f3287353138307",
+  "url": "https://raw.githubusercontent.com/facebook/react/main/.github/workflows/runtime_build_and_test.yml"
+ },
+ "workflows/mystenlabs-sui-external.yml": {
+  "bytes": 6078,
+  "sha256": "cd4de4a28ba5f6353c0c7724a327e1815581c1408d09efe40879cfc2787b9a7a",
+  "url": "https://raw.githubusercontent.com/MystenLabs/sui/main/.github/workflows/external.yml"
+ },
+ "workflows/mystenlabs-sui-rust.yml": {
+  "bytes": 30398,
+  "sha256": "5c12bdb077c77d0d413e8cc8001294442724c4dd39fdf2b6aff7f8a2ea18975e",
+  "url": "https://raw.githubusercontent.com/MystenLabs/sui/main/.github/workflows/rust.yml"
+ },
+ "workflows/nodejs-node-test-linux.yml": {
+  "bytes": 3193,
+  "sha256": "a11ae66a507a908718f34f4ac733569cedb37c4d2257a59fb0d8d92855207bc5",
+  "url": "https://raw.githubusercontent.com/nodejs/node/main/.github/workflows/test-linux.yml"
+ },
+ "workflows/pallets-flask-tests.yaml": {
+  "bytes": 2367,
+  "sha256": "b9e91de90c44bd4d2926296389d96e20c7105c979afbc228022c198c7b6bc51b",
+  "url": "https://raw.githubusercontent.com/pallets/flask/main/.github/workflows/tests.yaml"
+ },
+ "workflows/psf-requests-tests.yml": {
+  "bytes": 2305,
+  "sha256": "881865cff186f47787598b2a3d7e6e7eb4d56a3fe4c015414c3cd4d90d9cbb90",
+  "url": "https://raw.githubusercontent.com/psf/requests/main/.github/workflows/run-tests.yml"
+ },
+ "workflows/serde-ci.yml": {
+  "bytes": 5710,
+  "sha256": "2dbe2b645b9ba7f3545dfea2b08ba6d0ff0fb596878d84cd860743985c337338",
+  "url": "https://raw.githubusercontent.com/serde-rs/serde/master/.github/workflows/ci.yml"
+ },
+ "workflows/tj-actions-changed-files-test.yml": {
+  "bytes": 99713,
+  "sha256": "610d5ee3916a90765883dd6bb8202c1befabcdf270036add95fc15e0754dc9e0",
+  "url": "https://raw.githubusercontent.com/tj-actions/changed-files/main/.github/workflows/test.yml"
+ },
+ "workflows/tokio-ci.yml": {
+  "bytes": 54245,
+  "sha256": "c150fb07ed2d59371a9d8925a62fe08ab232d69f4e8ef050fb64fc89afb88e8e",
+  "url": "https://raw.githubusercontent.com/tokio-rs/tokio/master/.github/workflows/ci.yml"
+ },
+ "workflows/vercel-nextjs-build.yml": {
+  "bytes": 46231,
+  "sha256": "314b771c4257cdf97305cc3c169bed0958e8b64375db9b167b58f6660bc4a48e",
+  "url": "https://raw.githubusercontent.com/vercel/next.js/canary/.github/workflows/build_and_test.yml"
+ }
+}

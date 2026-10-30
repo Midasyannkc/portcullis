@@ -1,0 +1,8 @@
+.pytest_cache
+__pycache__
+*.pyc
+out/raw_scan_cache.json
+.venv
+node_modules
+target/**/target
+target/**/Cargo.lock

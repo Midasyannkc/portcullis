@@ -1,0 +1,6 @@
+pytest
+semgrep
+pyyaml
+cryptography
+hypothesis
+requests
