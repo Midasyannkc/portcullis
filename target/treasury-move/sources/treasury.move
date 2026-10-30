@@ -19,7 +19,7 @@ module treasury::treasury {
         balance::join(&mut t.funds, coin::into_balance(c));
     }
 
-    public fun withdraw(t: &mut Treasury, amount: u64, ctx: &mut TxContext): Coin<SUI> {
+    public fun withdraw(_cap: &AdminCap, t: &mut Treasury, amount: u64, ctx: &mut TxContext): Coin<SUI> {
         coin::from_balance(balance::split(&mut t.funds, amount), ctx)
     }
 }
