@@ -1,0 +1,116 @@
+[
+ {
+  "n": 1,
+  "title": "YAML 1.1 reads the `on:` key as boolean True, so pull_request_target workflows were never recognised as such",
+  "found": "pwn-request test on a real-format workflow",
+  "detail": "The analyzer looked up wf['on'] and got nothing, so the pull_request_target plus untrusted checkout check (the pattern behind several real CI compromises) silently never ran. Both the string and boolean spellings are read now."
+ },
+ {
+  "n": 2,
+  "title": "Transposed-letter typosquats (lodahs, raect) were not flagged",
+  "found": "typosquat test written from known squat patterns",
+  "detail": "Plain Levenshtein counts an adjacent swap as distance 2, and the threshold was 1. A single adjacent transposition is now an edit."
+ },
+ {
+  "n": 3,
+  "title": "Duplicate detection merged distinct bugs on the same asset and class",
+  "found": "dedupe test against the synthetic corpus",
+  "detail": "Comparing titles alone marked 22 of 40 reports as duplicates when only 4 were. Distinct bugs on one asset were being closed as dupes, which would have cost a reporter a payout and the program a fix. A duplicate must now share asset, class and endpoint."
+ },
+ {
+  "n": 4,
+  "title": "Brand used as a subdomain of an unrelated domain was missed",
+  "found": "anti-scam corpus evaluation (4 false negatives)",
+  "detail": "Only the registrable label was inspected, so sui.airdrop-claim.xyz scored 0. Every label left of the TLD is scanned now."
+ },
+ {
+  "n": 5,
+  "title": "The digit 1 was read only as the letter l",
+  "found": "anti-scam corpus evaluation",
+  "detail": "su1-rewards.xyz uses 1 for i. The skeleton now evaluates both readings."
+ },
+ {
+  "n": 6,
+  "title": "Strong single drainer signals stayed under the detection threshold",
+  "found": "anti-scam corpus evaluation (4 false negatives)",
+  "detail": "Unlimited approvals, eth_sign and misleading signing prompts scored 2 or 3 against a threshold of 4. Each is a decisive signal on its own and is weighted at the threshold."
+ },
+ {
+  "n": 7,
+  "title": "A one-letter brand typo with no other signal, and the phrase 'limited time', raised false positives",
+  "found": "anti-scam corpus evaluation (2 false positives)",
+  "detail": "waltrus-electric.com and a newsletter signup were flagged. Typo-only matches now need corroboration and 'limited time' is no longer an urgency signal."
+ },
+ {
+  "n": 8,
+  "title": "Rust parse_frame panics on short input",
+  "found": "deterministic fuzz test (20000 cases) and explicit short-frame test",
+  "detail": "Indexing without a length check panicked for any frame under 24 bytes, a remote crash for a service that parses network frames. The fix returns ParseError::TooShort."
+ },
+ {
+  "n": 9,
+  "title": "Rust amount truncated with `as u32`",
+  "found": "exploit test",
+  "detail": "A transfer of 2^32+5 units was booked as 5. The fix uses u32::try_from and returns LedgerError::Overflow."
+ },
+ {
+  "n": 10,
+  "title": "Rust MAC comparison returned at the first differing byte",
+  "found": "exploit test using bytes examined as a deterministic stand-in for timing",
+  "detail": "Response time would reveal how many leading bytes of a MAC guess are right. The fix accumulates the difference over all bytes. The test proves equal work, not wall-clock timing."
+ },
+ {
+  "n": 11,
+  "title": "TypeScript link preview fetched internal addresses (SSRF)",
+  "found": "exploit test with 9 blocked targets",
+  "detail": "Only startsWith('http') was checked, so cloud metadata, loopback, private ranges, file: and numeric hosts were fetched. A shared assertPublicHttps policy now applies."
+ },
+ {
+  "n": 12,
+  "title": "TypeScript note renderer did not escape HTML (stored XSS)",
+  "found": "exploit test",
+  "detail": "User text was interpolated into a template literal. The fix escapes & < > and quotes."
+ },
+ {
+  "n": 13,
+  "title": "TypeScript session tokens came from Math.random",
+  "found": "exploit test that stubs Math.random",
+  "detail": "Math.random is predictable from a few outputs. Tokens now come from crypto.randomBytes."
+ },
+ {
+  "n": 14,
+  "title": "TypeScript transfer endpoint had no CSRF protection",
+  "found": "exploit test",
+  "detail": "Cookie authentication alone let a cross-site form post move funds. A per-session CSRF token header is now required."
+ },
+ {
+  "n": 15,
+  "title": "Variant analysis: the webhook sender had the same SSRF as INC-11",
+  "found": "Semgrep taint rule derived from the INC-11 fix, swept over the whole target",
+  "detail": "The INC-11 fix covered linkPreview only. The rule found notifyMerchant, which fetched a merchant supplied URL with the same weak check. Both now share one policy, which is the point of variant analysis: close the class, not the instance."
+ },
+ {
+  "n": 16,
+  "title": "Move treasury withdraw had no capability check",
+  "found": "Move access-control rule (pattern only, no Move toolchain)",
+  "detail": "Anyone could call the public withdraw function and take funds. It now requires &AdminCap. The Move code was never compiled or run here."
+ },
+ {
+  "n": 17,
+  "title": "Move rule flagged the real sui::coin test helpers",
+  "found": "known-clean check on real Sui framework Move files",
+  "detail": "&mut TxContext matched the shared-object argument pattern. It is excluded now. This is the known-clean check the posting asks for doing its job."
+ },
+ {
+  "n": 18,
+  "title": "Rust slice rule flagged the already-fixed parser",
+  "found": "known-clean check on the fixed Treasury sources",
+  "detail": "The length guard sits inside an if, which the not-inside pattern did not recognise. A `if buf.len() < N` guard now suppresses the rule."
+ },
+ {
+  "n": 19,
+  "title": "Release workflow combined pull_request_target, an unpinned KEV action, shell injection and a secret",
+  "found": "GitHub Actions analyzer on the Treasury workflow",
+  "detail": "Four critical or high findings on one file. The fix is tag triggered, pinned to a real commit SHA, passes the ref through env, scopes permissions, uses a protected environment and publishes with provenance."
+ }
+]

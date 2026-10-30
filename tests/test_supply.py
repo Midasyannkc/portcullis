@@ -67,3 +67,23 @@ def test_provenance_rejects_wrong_key_and_policy(tree):
     assert pv.check_policy(env, art, Ed25519PrivateKey.generate().public_key(), "k1", **POL)
     v = pv.check_policy(env, art, k.public_key(), "k1", expected_commit="zzz", **POL)
     assert "build used unpinned actions" in v and "commit differs from the reviewed commit" in v
+
+
+from portcullis import intel
+
+
+def test_real_advisories_yield_compromised_versions():
+    bad = intel.compromised_versions()
+    assert bad[("debug", "4.4.2")] == "GHSA-4x49-vf9v-38px"
+    assert ("backslash", "0.2.1") in bad and ("color-name", "2.0.1") in bad
+
+
+def test_lock_with_compromised_debug_is_flagged_and_real_fixed_version_is_not():
+    mk = lambda v: {"packages": {"": {}, "node_modules/debug": {"version": v}}}
+    assert [f.rule for f in intel.check_lock(mk("4.4.2"))] == ["compromised-version"]
+    assert intel.check_lock(mk("4.4.3")) == []     # 4.4.3 is the real release in data/raw/npm/tarballs
+
+
+def test_rustsec_includes_the_mysten_related_ed25519_advisory():
+    r = {a["id"]: a for a in intel.rustsec()}
+    assert r["RUSTSEC-2022-0093"]["package"] == "ed25519-dalek" and "crypto-failure" in r["RUSTSEC-2022-0093"]["categories"]
