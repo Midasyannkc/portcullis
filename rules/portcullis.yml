@@ -82,4 +82,4 @@ rules:
     message: Public Move function takes a &mut shared object but no *Cap argument, so anyone can call it.
     metadata: {category: access-control, derived-from: INC-16}
     patterns:
-      - pattern-regex: 'public\s+(entry\s+)?fun\s+(withdraw|set_\w+|update_\w+|mint\w*|burn\w*|pause\w*|upgrade\w*|sweep\w*)\s*(<[^>]*>)?\s*\((?![^)]*Cap\b)[^)]*&mut\s+[A-Z]\w+[^)]*\)'
+      - pattern-regex: 'public\s+(entry\s+)?fun\s+(withdraw|set_\w+|update_\w+|mint\w*|burn\w*|pause\w*|upgrade\w*|sweep\w*)\s*(<[^>]*>)?\s*\((?![^)]*Cap\b)[^)]*&mut\s+(?!TxContext\b)[A-Z]\w+[^)]*\)'
