@@ -38,7 +38,7 @@ def domain_score(domain: str):
         score += 2; reasons.append("punycode label")
     if any(ord(c) > 127 for c in d):
         score += 2; reasons.append("non-ascii characters")
-    sk = skeleton(label.replace("xn--", ""))
+    sk = skeleton(".".join(parts[:-1]).replace("xn--", ""))
     toks = [t for t in re.split(r"[-_.]", sk) if t]
     hit = None
     for b in BRANDS:
@@ -51,9 +51,9 @@ def domain_score(domain: str):
             break
     if hit:
         score += 2; reasons.append(f"contains brand {hit}")
-        if skeleton(label) != label.lower():
+        if sk != ".".join(parts[:-1]).lower():
             score += 2; reasons.append("homoglyph substitution")
-        lures = [l for l in LURE if l in label]
+        lures = [l for l in LURE if l in ".".join(parts[:-1])]
         if lures:
             score += 2; reasons.append("lure keyword " + lures[0])
         if tld in CHEAP_TLDS:
