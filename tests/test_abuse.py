@@ -65,3 +65,11 @@ def test_typo_only_and_marketing_phrases_are_not_enough():
 def test_corpus_has_no_false_positives_and_few_misses():
     e = D.evaluate(CORPUS)
     assert e["fp"] == 0 and e["fn"] <= 1, e["misses"]
+
+
+def test_holdout_written_after_tuning():
+    """Samples written after the detectors were tuned.  One known miss: sulwalet.xyz (two edits at once)."""
+    hold = [tuple(s) for s in json.loads((Path(__file__).resolve().parents[1] / "data/synthetic/abuse_holdout.json").read_text())]
+    e = D.evaluate(hold)
+    assert e["precision"] == 1.0 and e["recall"] >= 0.9
+    assert [m[2] for m in e["misses"]] == ["sulwalet.xyz"]
