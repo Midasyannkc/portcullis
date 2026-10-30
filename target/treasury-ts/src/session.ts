@@ -16,7 +16,9 @@ export interface Ledger { transfers: { to: string; amount: number }[] }
 
 export function transferHandler(req: Req, sessions: Set<string>, ledger: Ledger): number {
   if (req.method !== "POST") return 405;
-  if (!sessions.has(req.cookies["session"] ?? "")) return 401;
+  const sid = req.cookies["session"] ?? "";
+  if (!sessions.has(sid)) return 401;
+  if (req.headers["x-csrf-token"] !== csrfTokenFor(sid)) return 403;
   ledger.transfers.push(req.body);
   return 200;
 }
