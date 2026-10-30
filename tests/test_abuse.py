@@ -54,3 +54,14 @@ def test_single_strong_drainer_signals_reach_threshold():
                 "wallet.signAndExecuteTransaction({tx}); const message='verify your wallet to claim airdrop'",
                 "const MAX=2**256-1; erc20.approve(drain, MAX_UINT)"):
         assert D.verdict("js", src)[0], src
+
+
+def test_typo_only_and_marketing_phrases_are_not_enough():
+    assert not D.domain_is_phish("waltrus-electric.com")[0]
+    assert not D.verdict("page", '<title>Newsletter</title><form action="https://list.example/subscribe"><input name="email"></form><p>Limited time: 20% off swag</p>')[0]
+    assert D.verdict("page", '<title>Claim your SUI airdrop</title><p>Act now, limited time.</p><form><input name="mnemonic" placeholder="secret recovery phrase"></form>')[0]
+
+
+def test_corpus_has_no_false_positives_and_few_misses():
+    e = D.evaluate(CORPUS)
+    assert e["fp"] == 0 and e["fn"] <= 1, e["misses"]
