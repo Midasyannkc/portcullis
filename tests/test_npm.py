@@ -74,3 +74,8 @@ def test_real_popular_names_not_squats_of_each_other():
     hits = {n: npm.typosquat(n, [p for p in pop if p != n]) for n in pop}
     # report, but real popular pairs (e.g. mysql/mysql2, ora/pora) may collide; keep it small
     assert sum(1 for v in hits.values() if v) <= 6, {k: v for k, v in hits.items() if v}
+
+
+def test_typosquat_transposition():
+    assert npm.typosquat("lodahs") == "lodash"
+    assert npm.typosquat("raect") == "react"
