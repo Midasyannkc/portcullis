@@ -47,16 +47,18 @@ def domain_score(domain: str):
     sk = next((v for v in sorted(skeletons(prefix)) if any(b in v for b in BRANDS)), skeleton(prefix))
     toks = [t for t in re.split(r"[-_.]", sk) if t]
     hit = None
+    typo_only = False
     for b in BRANDS:
         if b in sk:
             hit = b
         for t in toks:
             if t != b and len(b) >= 4 and _lev(t, b) == 1:
-                hit = b; reasons.append(f"edit-distance-1 to {b}"); score += 3
+                hit = b; typo_only = True; reasons.append(f"edit-distance-1 to {b}"); score += 2
         if hit:
             break
     if hit:
-        score += 2; reasons.append(f"contains brand {hit}")
+        if not typo_only:
+            score += 2; reasons.append(f"contains brand {hit}")
         if sk != ".".join(parts[:-1]).lower():
             score += 2; reasons.append("homoglyph substitution")
         lures = [l for l in LURE if l in ".".join(parts[:-1])]
@@ -77,7 +79,7 @@ def domain_is_phish(domain, threshold=4):
 # ---------- page classifier ----------
 SEED_FORM = re.compile(r"(seed\s*phrase|recovery\s*phrase|secret\s*recovery|mnemonic|12[\s-]*word|24[\s-]*word|private\s*key)", re.I)
 INPUT_TAG = re.compile(r"<(input|textarea)\b", re.I)
-URGENCY = re.compile(r"(within\s+\d+\s*(hours|minutes)|account\s+(will\s+be\s+)?(suspended|locked)|act\s+now|limited\s+time|validate\s+your\s+wallet)", re.I)
+URGENCY = re.compile(r"(within\s+\d+\s*(hours|minutes)|account\s+(will\s+be\s+)?(suspended|locked)|act\s+now|validate\s+your\s+wallet)", re.I)
 FORM_OFFSITE = re.compile(r"<form[^>]+action=[\"']https?://(?!(?:[a-z0-9.-]*\.)?(?:sui\.io|mystenlabs\.com)[/\"'])", re.I)
 BRAND_TITLE = re.compile(r"<title>[^<]*(sui|mysten|walrus)[^<]*</title>", re.I)
 TELEGRAM = re.compile(r"api\.telegram\.org/bot|discord(app)?\.com/api/webhooks", re.I)
