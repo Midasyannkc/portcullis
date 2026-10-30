@@ -63,3 +63,19 @@ def test_fix_validation_rejects_noop_fix(monkeypatch):
     p = dict(F.PAIRS["ssrf"]); p["fixed"] = F.ssrf_vuln
     monkeypatch.setitem(F.PAIRS, "ssrf", p)
     assert not F.validate("ssrf")["accepted"]
+
+
+def test_known_duplicates_found():
+    found = {k: v["duplicate_of"] for k, v in ROWS.items() if v["duplicate_of"]}
+    expected = {r["id"]: r["duplicate_of"] for r in REPORTS if r["duplicate_of"]}
+    assert found == expected
+
+
+def test_distinct_bugs_on_same_asset_are_not_merged():
+    originals = [r for r in REPORTS if not r["duplicate_of"]]
+    assert all(ROWS[r["id"]]["duplicate_of"] is None for r in originals)
+
+
+def test_recurring_classes_found():
+    rc = T.recurring(list(ROWS.values()))
+    assert {"ssrf", "xss", "authz", "move-capability"} <= set(rc)
