@@ -51,3 +51,8 @@ def test_every_rule_has_derivation_metadata():
     import yaml
     rules = yaml.safe_load(RULES.read_text())["rules"]
     assert len(rules) == 7 and all(r["metadata"]["derived-from"].startswith("INC-") for r in rules)
+
+
+def test_variant_sweep_finds_no_unvalidated_fetch_left_in_treasury(scan):
+    """The INC-11 fix covered linkPreview only.  The rule derived from it must find no other sink."""
+    assert not fired(scan, "ts-ssrf-unvalidated-url", "target/treasury-ts/src")
