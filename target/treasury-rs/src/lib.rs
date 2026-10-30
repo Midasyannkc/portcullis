@@ -19,9 +19,12 @@ pub enum LedgerError {
 }
 
 pub fn parse_frame(buf: &[u8]) -> Result<Transfer, ParseError> {
+    if buf.len() < 24 {
+        return Err(ParseError::TooShort);
+    }
     let mut to = [0u8; 8];
     to.copy_from_slice(&buf[0..8]);
-    let amount = u64::from_be_bytes(buf[8..16].try_into().unwrap());
+    let amount = u64::from_be_bytes(buf[8..16].try_into().map_err(|_| ParseError::TooShort)?);
     let mut mac = [0u8; 8];
     mac.copy_from_slice(&buf[16..24]);
     Ok(Transfer { to, amount, mac })
