@@ -40,10 +40,9 @@ pub fn verify_mac(expected: &[u8], got: &[u8]) -> (bool, usize) {
     if expected.len() != got.len() {
         return (false, 0);
     }
+    let mut diff = 0u8;
     for i in 0..expected.len() {
-        if expected[i] != got[i] {
-            return (false, i + 1);
-        }
+        diff |= expected[i] ^ got[i];
     }
-    (true, expected.len())
+    (diff == 0, expected.len())
 }
