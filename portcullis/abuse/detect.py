@@ -16,11 +16,16 @@ CONFUSABLE = {"0": "o", "1": "l", "3": "e", "5": "s", "@": "a", "$": "s", "а": 
 CHEAP_TLDS = {"xyz", "top", "click", "site", "online", "live", "icu", "cc", "tk", "app", "link"}
 
 
-def skeleton(label: str) -> str:
+def skeleton(label: str, one="l") -> str:
     label = unicodedata.normalize("NFKC", label.lower())
-    s = "".join(CONFUSABLE.get(c, c) for c in label)
+    s = "".join(one if c == "1" else CONFUSABLE.get(c, c) for c in label)
     s = s.replace("rn", "m").replace("vv", "w")
     return s
+
+
+def skeletons(label: str):
+    """Digit 1 is visually i or l; return both readings."""
+    return {skeleton(label, "l"), skeleton(label, "i")}
 
 
 def domain_score(domain: str):
@@ -38,7 +43,8 @@ def domain_score(domain: str):
         score += 2; reasons.append("punycode label")
     if any(ord(c) > 127 for c in d):
         score += 2; reasons.append("non-ascii characters")
-    sk = skeleton(".".join(parts[:-1]).replace("xn--", ""))
+    prefix = ".".join(parts[:-1]).replace("xn--", "")
+    sk = next((v for v in sorted(skeletons(prefix)) if any(b in v for b in BRANDS)), skeleton(prefix))
     toks = [t for t in re.split(r"[-_.]", sk) if t]
     hit = None
     for b in BRANDS:
