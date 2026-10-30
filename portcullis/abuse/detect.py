@@ -111,15 +111,15 @@ HEX_OBF = re.compile(r"_0x[0-9a-f]{4,}")
 def js_score(src: str):
     score, why = 0, []
     if APPROVE_ALL.search(src) or (MAX_UINT.search(src) and re.search(r"approve", src, re.I)):
-        score += 3; why.append("unlimited token approval")
+        score += 4; why.append("unlimited token approval")
     if ETH_SIGN.search(src):
-        score += 3; why.append("blind signing method")
+        score += 4; why.append("blind signing method")
     if HARD_ADDR_SUI.search(src):
         score += 4; why.append("transferObjects to a hardcoded address")
     if ALL_COINS.search(src):
         score += 3; why.append("enumerates all coins then transfers")
     if WALLET_BLIND.search(src):
-        score += 2; why.append("misleading signing prompt")
+        score += 4; why.append("misleading signing prompt")
     if len(HEX_OBF.findall(src)) >= 5:
         score += 2; why.append("obfuscated identifiers")
     if TELEGRAM.search(src):
