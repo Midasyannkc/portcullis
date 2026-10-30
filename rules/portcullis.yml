@@ -1,0 +1,85 @@
+rules:
+  - id: ts-ssrf-unvalidated-url
+    mode: taint
+    languages: [typescript]
+    severity: ERROR
+    message: A user supplied URL reaches an outbound fetch without passing assertPublicHttps (SSRF).
+    metadata: {category: ssrf, derived-from: INC-11}
+    pattern-sources:
+      - patterns:
+          - pattern-inside: |
+              function $F(..., $U: string, ...) { ... }
+          - pattern: $U
+          - metavariable-regex: {metavariable: $U, regex: '(?i)^.*(url|uri|callback).*$'}
+    pattern-sinks:
+      - patterns:
+          - pattern: $FETCH(...)
+          - metavariable-regex: {metavariable: $FETCH, regex: '(?i)^(fetch|fetcher|http\w*|request)$'}
+    pattern-sanitizers:
+      - pattern: assertPublicHttps(...)
+
+  - id: ts-xss-unescaped-template
+    languages: [typescript, javascript]
+    severity: ERROR
+    message: User text interpolated into an HTML template literal without escapeHtml (XSS).
+    metadata: {category: xss, derived-from: INC-12}
+    patterns:
+      - pattern-regex: '`[^`]*<[a-zA-Z][^`]*\$\{[^}]+\}[^`]*`'
+      - pattern-not-regex: '\$\{\s*escapeHtml\('
+
+  - id: ts-weak-rng-secret
+    languages: [typescript, javascript]
+    severity: ERROR
+    message: Math.random used inside a function that produces a token, session, nonce or key.
+    metadata: {category: crypto-failure, derived-from: INC-13}
+    patterns:
+      - pattern: Math.random()
+      - pattern-inside: |
+          function $F(...) { ... }
+      - metavariable-regex: {metavariable: $F, regex: '(?i).*(token|session|secret|nonce|key|password).*'}
+
+  - id: rust-lossy-narrowing-cast
+    languages: [rust]
+    severity: WARNING
+    message: Narrowing `as` cast can silently truncate; use try_from and handle the error.
+    metadata: {category: integer-truncation, derived-from: INC-9}
+    pattern-either:
+      - pattern: $X as u32
+      - pattern: $X as u16
+      - pattern: $X as u8
+      - pattern: $X as i32
+    pattern-not-regex: 'u(8|16|32) as u(64|128|size)'
+
+  - id: rust-unchecked-slice-of-input
+    languages: [rust]
+    severity: ERROR
+    message: Slicing an input byte slice in a function that never checks its length can panic on short input.
+    metadata: {category: dos-panic, derived-from: INC-8}
+    patterns:
+      - pattern: $B[$A..$C]
+      - pattern-inside: |
+          fn $F(..., $B: &[u8], ...) { ... }
+      - pattern-not-inside: |
+          fn $F(..., $B: &[u8], ...) { ... $B.len() ... }
+
+  - id: rust-early-exit-secret-compare
+    languages: [rust]
+    severity: ERROR
+    message: Byte-wise comparison that returns at the first mismatch leaks the matching prefix length (timing).
+    metadata: {category: crypto-failure, derived-from: INC-10}
+    pattern: |
+      for $I in $R {
+        ...
+        if $A[$I] != $B[$I] {
+          return $RET;
+        }
+        ...
+      }
+
+  - id: move-public-fn-mutates-without-capability
+    languages: [generic]
+    severity: ERROR
+    message: Public Move function takes a &mut shared object but no *Cap argument, so anyone can call it.
+    metadata: {category: access-control, derived-from: INC-16}
+    patterns:
+      - pattern-regex: 'public\s+(entry\s+)?fun\s+(withdraw|set_\w+|update_\w+|mint\w*|burn\w*|pause\w*|upgrade\w*|sweep\w*)\s*(<[^>]*>)?\s*\((?![^)]*Cap\b)[^)]*&mut\s+[A-Z]\w+[^)]*\)'
