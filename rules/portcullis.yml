@@ -60,7 +60,7 @@ rules:
       - pattern-inside: |
           fn $F(..., $B: &[u8], ...) { ... }
       - pattern-not-inside: |
-          fn $F(..., $B: &[u8], ...) { ... $B.len() ... }
+          fn $F(..., $B: &[u8], ...) { ... if $B.len() < $N { ... } ... }
 
   - id: rust-early-exit-secret-compare
     languages: [rust]
