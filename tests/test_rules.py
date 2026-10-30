@@ -56,3 +56,9 @@ def test_every_rule_has_derivation_metadata():
 def test_variant_sweep_finds_no_unvalidated_fetch_left_in_treasury(scan):
     """The INC-11 fix covered linkPreview only.  The rule derived from it must find no other sink."""
     assert not fired(scan, "ts-ssrf-unvalidated-url", "target/treasury-ts/src")
+
+
+def test_treasury_move_withdraw_requires_admin_cap(scan):
+    assert not fired(scan, "move-public-fn-mutates-without-capability", "target/treasury-move")
+    src = (ROOT / "target/treasury-move/sources/treasury.move").read_text()
+    assert "_cap: &AdminCap" in src or "cap: &AdminCap" in src
