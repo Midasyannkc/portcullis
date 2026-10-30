@@ -58,3 +58,14 @@ def test_real_workflows_are_analyzed_without_error_and_pinned_ones_are_clean():
     assert len(out) == 13
     for clean in ["expressjs-express-ci.yml", "pallets-flask-tests.yaml", "psf-requests-tests.yml"]:
         assert not [f for f in out[clean] if f.rule == "unpinned-action"], clean
+
+
+def test_pull_request_target_checkout_of_pr_head_is_a_pwn_request():
+    steps = "      - uses: actions/checkout@" + SHA + "\n        with:\n          ref: ${{ github.event.pull_request.head.sha }}\n"
+    assert "pwn-request" in rules(wf("pull_request_target", steps))
+
+
+def test_trigger_list_and_mapping_forms_are_read():
+    steps = "      - uses: actions/checkout@" + SHA + "\n        with:\n          ref: ${{ github.head_ref }}\n"
+    assert "pwn-request" in rules(wf("[pull_request_target, push]", steps))
+    assert "pwn-request" in rules(wf("\n  pull_request_target:\n    types: [opened]", steps))
