@@ -51,7 +51,8 @@ def analyze(text: str, path: str, kev: dict | None = None) -> list[Finding]:
     kev = kev if kev is not None else kev_actions()
     wf = yaml.safe_load(text) or {}
     out: list[Finding] = []
-    triggers = wf.get("on")
+    # YAML 1.1 reads the unquoted key `on` as the boolean True, so look for both spellings.
+    triggers = wf.get("on", wf.get(True))
     names = set(triggers if isinstance(triggers, (list, dict)) else [triggers])
 
     # permissions
