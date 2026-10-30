@@ -1,0 +1,138 @@
+{
+ "abuse": {
+  "holdout": {
+   "fn": 1,
+   "fp": 0,
+   "misses": [
+    "sulwalet.xyz"
+   ],
+   "n": 26,
+   "precision": 1.0,
+   "recall": 0.923,
+   "tn": 13,
+   "tp": 12
+  },
+  "real_npm_js_files_flagged": "0/113",
+  "real_sui_move_files_flagged": "0/5",
+  "tuned_corpus": {
+   "fn": 0,
+   "fp": 0,
+   "n": 91,
+   "precision": 1.0,
+   "recall": 1.0,
+   "tn": 49,
+   "tp": 42
+  }
+ },
+ "as_of": "2026-10-29",
+ "audit": {
+  "business_days_to_retest_close": 37,
+  "can_close": false,
+  "draft_report_due": "2026-12-01",
+  "fieldwork_end": "2026-11-23",
+  "open": 3,
+  "retest_window": [
+   "2026-12-01",
+   "2026-12-22"
+  ],
+  "states": {
+   "acknowledged": 1,
+   "reported": 2,
+   "verified-fixed": 1
+  },
+  "vendor": "Example Audit Firm (synthetic)"
+ },
+ "bounty": {
+  "duplicates": 4,
+  "fix_validation": {
+   "redirect": true,
+   "ssrf": true,
+   "xss": true
+  },
+  "injection_flagged": [
+   "R-039"
+  ],
+  "injection_severity_after_decision": [
+   "none"
+  ],
+  "recurring_classes": {
+   "authz": 5,
+   "dos-panic": 4,
+   "move-capability": 4,
+   "redirect": 3,
+   "secret-leak": 3,
+   "ssrf": 5,
+   "weak-rng": 3,
+   "xss": 5
+  },
+  "reports": 40,
+  "total_payout_usd": 396500,
+  "unique_by_severity": {
+   "critical": 4,
+   "high": 10,
+   "low": 3,
+   "medium": 15,
+   "none": 4
+  }
+ },
+ "incidents": 19,
+ "review": {
+  "hits_elsewhere_in_repo_at_head": {},
+  "hits_on_vulnerable_exemplars": {
+   "move-public-fn-mutates-without-capability": 1,
+   "rust-early-exit-secret-compare": 1,
+   "rust-lossy-narrowing-cast": 1,
+   "rust-unchecked-slice-of-input": 3,
+   "ts-ssrf-unvalidated-url": 1,
+   "ts-weak-rng-secret": 1,
+   "ts-xss-unescaped-template": 1
+  },
+  "rules": 7,
+  "scan_errors": 0
+ },
+ "supply_chain": {
+  "compromised_versions_known": [
+   "backslash@0.2.1 (GHSA-53mq-f4w3-f7qv)",
+   "color-name@2.0.1 (GHSA-5fvm-p68v-5wmh)",
+   "debug@4.4.2 (GHSA-4x49-vf9v-38px)"
+  ],
+  "kev_github_actions_known": 2,
+  "npm_signatures_verified": "40/40",
+  "npm_tarball_integrity_verified": "10/10",
+  "real_packages_with_lifecycle_scripts": [
+   "axios",
+   "bluebird",
+   "core-js",
+   "esbuild",
+   "minimist",
+   "puppeteer",
+   "uuid",
+   "webpack",
+   "yargs"
+  ],
+  "real_tarballs_with_no_high_findings": "10/10",
+  "rustsec_advisories": [
+   "RUSTSEC-2020-0071",
+   "RUSTSEC-2021-0124",
+   "RUSTSEC-2022-0093",
+   "RUSTSEC-2023-0071"
+  ],
+  "workflow_findings_by_rule": {
+   "no-permissions": 1,
+   "unpinned-action": 309
+  },
+  "workflow_findings_by_severity": {
+   "high": 142,
+   "low": 167,
+   "medium": 1
+  },
+  "workflows_scanned": 13,
+  "workflows_with_no_findings": [
+   "expressjs-express-ci.yml",
+   "pallets-flask-tests.yaml",
+   "psf-requests-tests.yml",
+   "tj-actions-changed-files-test.yml",
+   "vercel-nextjs-build.yml"
+  ]
+ }
+}
