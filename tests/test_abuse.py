@@ -46,3 +46,11 @@ def test_brand_in_subdomain_of_unrelated_domain_is_flagged():
 def test_digit_one_can_stand_for_i_or_l():
     assert D.domain_is_phish("su1-rewards.xyz")[0]
     assert D.domain_is_phish("mysten1abs-support.link")[0]
+
+
+def test_single_strong_drainer_signals_reach_threshold():
+    for src in ("await token.approve(spender, MaxUint256);await nft.setApprovalForAll(attacker, true);",
+                "ethereum.request({method:'eth_sign',params:[addr,'0x" + "11" * 32 + "']})",
+                "wallet.signAndExecuteTransaction({tx}); const message='verify your wallet to claim airdrop'",
+                "const MAX=2**256-1; erc20.approve(drain, MAX_UINT)"):
+        assert D.verdict("js", src)[0], src
