@@ -36,3 +36,8 @@ def test_real_npm_javascript_has_no_drainer_findings():
 def test_exact_and_subdomain_of_legit_domains_are_clean():
     for d in ("sui.io", "docs.sui.io", "blog.mystenlabs.com"):
         assert D.domain_score(d)[0] == 0
+
+
+def test_brand_in_subdomain_of_unrelated_domain_is_flagged():
+    for d in ("sui.airdrop-claim.xyz", "mystenlabs.verify-wallet.top", "walrus.reward-claim.live", "suiexplorer.recover-wallet.xyz"):
+        assert D.domain_is_phish(d)[0], d
