@@ -32,7 +32,7 @@ pub fn parse_frame(buf: &[u8]) -> Result<Transfer, ParseError> {
 
 /// Convert an amount in base units to the 32-bit field the ledger stores.
 pub fn to_ledger_units(amount: u64) -> Result<u32, LedgerError> {
-    Ok(amount as u32)
+    u32::try_from(amount).map_err(|_| LedgerError::Overflow)
 }
 
 /// Returns (equal, bytes_examined).  bytes_examined stands in for timing in tests.
